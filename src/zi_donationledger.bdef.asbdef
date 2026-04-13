@@ -1,0 +1,34 @@
+unmanaged implementation in class zbp_i_donationledger unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_DonationLedger alias Donation
+draft table zdonation_led_d
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+{
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  field ( readonly, numbering : managed ) DonationID;
+
+ mapping for zdonation_ledger
+  {
+    DonationID    = donation_id;
+    DonorName     = donor_name;    // Ensures name is saved
+    Amount        = amount;
+    Currency      = currency;
+    Purpose       = purpose;
+    DonationDate  = donation_date;  // Ensures date is saved
+    Status        = status;
+    LastChangedAt = last_changed_at;
+  }
+}

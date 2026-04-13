@@ -1,0 +1,4 @@
+@EndUserText.label: 'Donation Service'
+define service ZUI_DONATION_LEDGER {
+  expose ZC_DonationLedger as DonationLedger;
+}

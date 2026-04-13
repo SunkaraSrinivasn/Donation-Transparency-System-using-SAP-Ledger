@@ -1,0 +1,53 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Donation',
+    typeNamePlural: 'Donations',
+    title: { type: #STANDARD, value: 'DonorName' }
+  }
+}
+annotate view ZC_DonationLedger with
+{
+  @UI.facet: [
+    {
+      id: 'idIdentification',
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Donation Details',
+      position: 10
+    }
+  ]
+
+  @UI.hidden: true
+  DonationID;
+
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
+         identification: [ { position: 10 } ],
+         selectionField: [ { position: 10 } ] }
+  @EndUserText.label: 'Donor Name'
+  DonorName;
+
+  @UI: { lineItem:       [ { position: 20 } ],
+         identification: [ { position: 20 } ] }
+  @EndUserText.label: 'Total Amount'
+  Amount;
+
+  @UI: { lineItem:       [ { position: 30 } ],
+         identification: [ { position: 30 } ] }
+  @EndUserText.label: 'Currency'
+  Currency;
+
+  @UI: { lineItem:       [ { position: 40 } ],
+         identification: [ { position: 40 } ] }
+  @EndUserText.label: 'Purpose of Donation'
+  Purpose;
+
+  @UI: { lineItem:       [ { position: 50, importance: #HIGH } ],
+         identification: [ { position: 50 } ] }
+  @EndUserText.label: 'Date Received'
+  DonationDate;
+
+  @UI: { lineItem:       [ { position: 60 } ],
+         identification: [ { position: 60 } ] }
+  @EndUserText.label: 'Status'
+  Status;
+}

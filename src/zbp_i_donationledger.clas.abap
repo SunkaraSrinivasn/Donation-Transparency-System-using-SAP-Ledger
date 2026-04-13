@@ -1,0 +1,5 @@
+CLASS zbp_i_donationledger DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_donationledger.
+ENDCLASS.
+
+CLASS zbp_i_donationledger IMPLEMENTATION.
+ENDCLASS.
